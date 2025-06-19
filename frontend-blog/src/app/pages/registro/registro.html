@@ -1,0 +1,69 @@
+<app-header></app-header>
+
+<div class="block justify-center items-center w-full mt-8">
+  <div class="bg-amber-200 max-w-[40%] w-full border-2 rounded-2xl border-amber-950 p-4 justify-center mx-auto">
+    <h1 class="text-4xl flex justify-center uppercase text-amber-950">Registro</h1>
+    <form [formGroup]="form"  class="flex flex-col p-4 gap-2 w-full" (ngSubmit)="submit()" #formDir="ngForm">
+
+      <div class="flex flex-col gap-1">
+        <label class="ml-1 text-[19px]" for="nome">Nome</label>
+        <input class="bg-white p-2 rounded-[10px]" placeholder="Insira seu nome" type="text" id="nome" name="nome" required formControlName="nome" >
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="ml-1 text-[19px]" for="sobrenome">Sobrenome</label>
+        <input class="bg-white p-2 rounded-[10px]" formControlName="sobrenome" type="text" name="sobrenome" id="sobrenome" placeholder="Insira seu sobrenome" required>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="ml-1 text-[19px]" for="email">Email</label>
+        <input class="bg-white p-2 rounded-[10px]" formControlName="email" type="email" name="email" id="email" placeholder="Insira seu email" required>
+        @if (form.get('email')?.invalid && formDir.submitted){
+          <div class="text-[14px] ml-2 text-red-600 flex flex-row items-center gap-1">
+            <i class="ph ph-x"></i>
+            Insira um email válido!
+          </div>
+        }
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="ml-1 text-[19px]" for="senha">Senha</label>
+        <input class="bg-white p-2 rounded-[10px]" formControlName="senha" type="password" name="senha" id="senha" placeholder="Insira sua senha" required>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="ml-1 text-[19px]" for="confirmar-senha">Confirmar senha</label>
+        <input class="bg-white p-2 rounded-[10px]" formControlName="confirmarSenha" type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Insira novamente sua senha" required>
+
+        @if (!senhasIguais()){
+          <div class="text-[14px] ml-2 text-red-600">
+            <i class="ph ph-x"></i>
+            As senhas devem ser iguais!
+          </div>
+        }
+        @else {
+          <div class="text-[14px] ml-2 text-green-900">
+            <i class="ph ph-check"></i>
+            As senhas devem ser iguais!
+          </div>
+        }
+
+        @if (senha?.errors) {
+          <div class="text-[14px] ml-2 text-red-600">
+            <i class="ph ph-x"></i>
+            A senha deve conter pelo menos 8 caracteres!
+          </div>
+        }
+        @else {
+          <div class="text-[14px] ml-2 text-green-900">
+            <i class="ph ph-check"></i>
+            A senha deve conter pelo menos 8 caracteres!
+          </div>
+        }
+
+      </div>
+
+      <input class="bg-amber-950 hover:bg-amber-900 rounded-2xl uppercase text-white p-2.5 mt-3 cursor-pointer disabled:cursor-not-allowed" type="submit">
+    </form>
+  </div>
+</div>
