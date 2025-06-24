@@ -3,7 +3,7 @@
 <div class="flex justify-center items-center w-full h-[36rem]">
   <div class="bg-amber-200 w-[620px] min-h-[440px] border-2 rounded-2xl border-amber-950 p-4 justify-center">
     <span class="text-amber-950 text-4xl flex justify-center uppercase mt-4">Login</span>
-    <form [formGroup]="formulario" (ngSubmit)="acessar()" #formDir="ngForm" class="flex flex-col p-6 text-[18px] w-full gap-2 justify-center">
+    <form [formGroup]="formulario" (ngSubmit)="acessarHomeUsuario()" #formDir="ngForm" class="flex flex-col p-6 text-[18px] w-full gap-2 justify-center">
 
       <div class="flex flex-col gap-1">
         <label class="ml-1 text-[19px]" for="email">Email</label>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="text-[15px] flex flex-row gap-1 justify-end text-amber-950">Não tem uma conta? <a routerLink="/register" class="underline hover:text-amber-800">Faça seu registro!</a></div>
-      <input  class=" bg-amber-950 hover:bg-amber-900 rounded-2xl uppercase text-white p-2.5 mt-3 cursor-pointer disabled:cursor-not-allowed" type="submit" value="Entrar">
+      <input class="bg-amber-950 hover:bg-amber-900 rounded-2xl uppercase text-white p-2.5 mt-3 cursor-pointer disabled:cursor-not-allowed" type="submit" value="Entrar">
 
     </form>
   </div>

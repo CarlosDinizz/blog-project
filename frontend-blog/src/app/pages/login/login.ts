@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Header } from "../../components/header/header";
 import { Router, RouterLink } from '@angular/router';
 import {FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
@@ -11,6 +11,8 @@ import { Validator } from '@angular/forms';
   styleUrl: './login.css'
 })
 export class Login {
+
+  private router = inject(Router);
 
   formulario = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -25,8 +27,9 @@ export class Login {
     return this.formulario.get('senha');
   }
 
-  acessar(){
-    console.log("Dados enviados: \nemail: " + this.email?.value + "\nsenha: " + this.senha?.value);
-
+  acessarHomeUsuario(){
+    if(this.email?.value !== '' && this.senha?.value !== ''){
+      this.router.navigateByUrl('/home-usuario');
+    }
   }
 }

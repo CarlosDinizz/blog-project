@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Header } from "../../components/header/header";
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -10,6 +11,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
 })
 export class Registro {
 
+  private router = inject(Router);
 
   form = new FormGroup({
     nome: new FormControl('', Validators.required),
@@ -36,6 +38,7 @@ export class Registro {
   }
 
   submit(){
-    console.log(this.form.value);
+    alert('Você foi registrado!');
+    this.router.navigateByUrl('/login');
   }
 }
