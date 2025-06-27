@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class=" container mt-5 flex flex-col items-center justify-center gap-4 w-full p-4">
+  <h1 class="text-5xl uppercase">Criar post</h1>
+  <form class="flex flex-col gap-3 w-full max-w-[600px]" [formGroup]="formPost" (ngSubmit)="voltarHomeUsuario()" #formDir="ngForm">
+    <div class="flex flex-col gap-1">
+      <label for="titulo">Título do post</label>
+      <input name="titulo" formControlName="titulo" id="titulo" type="text" placeholder="Insira o título do post" class="border border-gray-400 rounded-[10px] p-2">
+
+      @if (formPost.get("titulo")?.hasError && formDir.submitted) {
+        <div class="text-[14px] text-red-600 ml-2">
+          Titulo do post é obrigatório!
+        </div>
+      }
+
+    </div>
+    <div class="flex flex-col w- gap-1">
+      <label for="conteudo">Conteúdo</label>
+      <textarea name="conteudo" formControlName="conteudo" id="conteudo" placeholder="Insira seu texto" autosize class="border border-gray-400 rounded-[10px] py-2 px-4 resize-none min-h-[300px]"></textarea>
+      @if (formPost.get("conteudo")?.hasError && formDir.submitted) {
+        <div class="text-[14px] text-red-600 ml-2">
+          Conteúdo não pode estar vazio!
+        </div>
+      }
+    </div>
+    <input class="p-2 bg-black text-white rounded-[10px] cursor-pointer hover:bg-gray-950 outline-blue-500" type="submit">
+  </form>
+</div>

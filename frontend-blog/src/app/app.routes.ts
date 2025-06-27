@@ -3,6 +3,7 @@ import { Home } from './pages/home/home';
 import { Login } from './pages/login/login';
 import { Registro } from './pages/registro/registro';
 import { HomeUsuario } from './pages/home-usuario/home-usuario';
+import { Post } from './pages/post/post';
 
 export const routes: Routes = [
   {
@@ -28,5 +29,10 @@ export const routes: Routes = [
     path: 'home-usuario',
     component: HomeUsuario,
     title: 'Página usuário'
+  },
+  {
+    path: 'post',
+    component: Post,
+    title: "Post"
   }
 ];

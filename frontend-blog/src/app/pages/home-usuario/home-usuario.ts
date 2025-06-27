@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Header } from "../../components/header/header";
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-usuario',
@@ -9,6 +10,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home-usuario.css'
 })
 export class HomeUsuario {
+
+  private router = inject(Router);
+
   pesquisaUsuario: string = '';
 
   listaUsuarios = [
@@ -34,4 +38,8 @@ export class HomeUsuario {
       conteudo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur mollitia tenetur culpa magni optio quas fugiat harum. Voluptatibus, inventore asperiores quam quidem similique soluta sunt dignissimos, repudiandae dolor deleniti autem?'
     }
   ]
+
+  abrirPaginaPost = () => {
+    this.router.navigateByUrl("/post")
+  }
 }
