@@ -40,6 +40,6 @@ export class HomeUsuario {
   ]
 
   abrirPaginaPost = () => {
-    this.router.navigateByUrl("/post")
+    this.router.navigateByUrl("/post/criar")
   }
 }

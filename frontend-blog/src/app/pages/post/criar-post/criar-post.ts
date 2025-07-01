@@ -1,17 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { Header } from "../../components/header/header";
+import { Header } from "../../../components/header/header";
 import {AutosizeModule} from 'ngx-autosize'
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 
-@Component({
-  selector: 'app-post',
-  imports: [Header, AutosizeModule, ReactiveFormsModule],
-  templateUrl: './post.html',
-  styleUrl: './post.css'
-})
-export class Post {
 
+@Component({
+  selector: 'app-criar-post',
+  imports: [Header, AutosizeModule, ReactiveFormsModule],
+  templateUrl: './criar-post.html',
+  styleUrl: './criar-post.css'
+})
+export class CriarPost {
   private router = inject(Router);
   private formBuilder = inject(FormBuilder);
 
