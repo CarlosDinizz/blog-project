@@ -37,7 +37,7 @@ export const routes: Routes = [
     title: "Criar um post"
   },
   {
-    path: 'post/ver',
+    path: ':usuario/:post',
     component: VerPost,
-  }
+  },
 ];
