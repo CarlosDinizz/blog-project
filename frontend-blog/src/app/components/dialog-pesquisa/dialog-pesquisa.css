@@ -1,0 +1,3 @@
+.removeLastHr:last-child hr {
+  display: none;
+}

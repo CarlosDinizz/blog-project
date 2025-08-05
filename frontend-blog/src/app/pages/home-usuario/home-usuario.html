@@ -1,28 +1,18 @@
 <app-header ></app-header>
+<div class="w-full mt-4 mb-3">
+  <div class="max-w-[30%] w-full mx-auto flex flex-row gap-2 items-center">
+      <div class="bg-white border-2 border-gray-300 rounded-[10px] pt-1 pr-2 pl-2 pb-1 flex flex-row items-center gap-2 w-[70%] mx-auto" (click)="openDialog()">
+        <label for="procurarUsuario"><i class="ph ph-magnifying-glass"></i></label>
+        <p class="text-[15px] text-gray-500" for="procurarUsuario">Procurar usuários</p>
+      </div>
+  </div>
+</div>
 <div class="w-full h-full p-8 flex justify-around gap-1">
   <div class="flex flex-col gap-4 max-w-[300px] w-full">
     <h3 class="text-2xl uppercase font-[350] mx-auto">Bem-vindo (usuario)</h3>
     <button (click)="abrirPaginaPost()" class="pt-2 pb-2 pl-3 pr-3 bg-amber-950 text-white rounded-[10px] uppercase w-full max-w-44 text-[13.5px] mx-auto cursor-pointer">Fazer um post</button>
-    <div class="flex flex-col gap-2 mt-4">
-
-      <label class="text-[18px] ml-1" for="procurarUsuario">Procurar usuários</label>
-
-      <div class="bg-white border-2 border-black rounded-[10px] pt-1 pr-2 pl-2 pb-1 flex flex-row items-center gap-0.5">
-        <label for="procurarUsuario"><i class="ph ph-magnifying-glass"></i></label>
-        <input class="w-full pt-0.5 pb-0.5 pl-1 pr-1 focus:outline-0 text-[14px]" type="text" id="procurarUsuario" name="procurar-usuario" [(ngModel)]="pesquisaUsuario">
-      </div>
-
-      <div class="flex flex-col bg-amber-100 rounded-[10px] gap-2 p-4 mt-4">
-        @for (usuario of listaUsuarios; track usuario.id) {
-          @if (usuario.nome.includes(pesquisaUsuario) && pesquisaUsuario !== '') {
-            <div class="bg-white rounded-[10px] p-1.5">{{usuario.nome}}</div>
-          }
-        }
-      </div>
-
-    </div>
   </div>
-  <div class="flex flex-col gap-4 max-w-[800px] w-full items-center border border-l-gray-400 border-r-gray-400 border-t-0 border-b-0">
+  <div class="flex flex-col gap-4 max-w-[800px] w-full items-center border border-l-gray-300 border-r-gray-300 border-t-0 border-b-0">
     <h1 class="text-4xl uppercase font-[400]">Seus últimos posts</h1>
     <div class="w-full p-4 rounded-[10px]">
       @for (post of posts; track post.id) {

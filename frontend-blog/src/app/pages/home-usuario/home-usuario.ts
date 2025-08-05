@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Header } from "../../components/header/header";
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogPesquisa } from '../../components/dialog-pesquisa/dialog-pesquisa';
 
 @Component({
   selector: 'app-home-usuario',
@@ -11,25 +13,13 @@ import { Router } from '@angular/router';
 })
 export class HomeUsuario {
 
+  constructor(){this.configurarDialog()}
+
   private router = inject(Router);
+  readonly dialog = inject(MatDialog);
 
-  pesquisaUsuario: string = '';
 
-  listaUsuarios = [
-    {
-      id: 1,
-      nome: 'luiz'
-    },
-    {
-      id: 2,
-      nome: 'luiza'
-    },
-    {
-      id: 3,
-      nome: 'carlos'
-    }
-  ];
-
+  dialogConfig = new MatDialogConfig();
 
   posts = [
     {
@@ -38,6 +28,19 @@ export class HomeUsuario {
       conteudo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur mollitia tenetur culpa magni optio quas fugiat harum. Voluptatibus, inventore asperiores quam quidem similique soluta sunt dignissimos, repudiandae dolor deleniti autem?'
     }
   ]
+
+  configurarDialog(){
+    this.dialogConfig.maxWidth = '500px';
+    this.dialogConfig.width = '100%';
+    this.dialogConfig.minWidth = '100px'
+    this.dialogConfig.position = {
+      top: '8%'
+    }
+  }
+
+  openDialog(){
+    this.dialog.open(DialogPesquisa, this.dialogConfig);
+  }
 
   abrirPaginaPost = () => {
     this.router.navigateByUrl("/post/criar")
