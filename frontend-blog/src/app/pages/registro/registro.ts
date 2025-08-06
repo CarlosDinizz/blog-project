@@ -38,6 +38,12 @@ export class Registro {
   }
 
   submit(){
+
+    if(this.form.invalid || !this.senhasIguais()){
+      alert("Preencha corretamente os campos necessários!");
+      return;
+    }
+
     alert('Você foi registrado!');
     this.router.navigateByUrl('/login');
   }

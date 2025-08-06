@@ -63,7 +63,7 @@
 
       </div>
 
-      <input class="bg-amber-950 hover:bg-amber-900 rounded-2xl uppercase text-white p-2.5 mt-3 cursor-pointer disabled:cursor-not-allowed" type="submit">
+      <input [disabled]="form.invalid || !senhasIguais()" class="bg-amber-950 hover:opacity-90 rounded-2xl uppercase text-white p-2.5 mt-3 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70" type="submit">
     </form>
   </div>
 </div>

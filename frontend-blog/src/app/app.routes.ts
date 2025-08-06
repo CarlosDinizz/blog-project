@@ -40,4 +40,8 @@ export const routes: Routes = [
     path: ':usuario/:post',
     component: VerPost,
   },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
