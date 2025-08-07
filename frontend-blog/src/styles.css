@@ -1,6 +1,17 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
 
+@import "tailwindcss";
 
 * {
   box-sizing: border-box;
+}
+
+@theme {
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-anton: "Anton", sans-serif;
+  --font-bungee: "Bungee", sans-serif;
+  --font-changa: "Changa One", sans-serif;
 }

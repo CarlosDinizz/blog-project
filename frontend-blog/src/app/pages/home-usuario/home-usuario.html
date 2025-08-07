@@ -7,13 +7,13 @@
       </div>
   </div>
 </div>
-<div class="w-full h-full p-8 flex justify-around gap-1">
+<div class="w-full h-full p-8 flex justify-around gap-1 max-sm:flex-col">
   <div class="flex flex-col gap-4 max-w-[300px] w-full">
     <h3 class="text-2xl uppercase font-[350] mx-auto">Bem-vindo (usuario)</h3>
     <button (click)="abrirPaginaPost()" class="pt-2 pb-2 pl-3 pr-3 bg-amber-950 hover:opacity-90 text-white rounded-[10px] uppercase w-full max-w-44 text-[13.5px] mx-auto cursor-pointer">Fazer um post</button>
   </div>
   <div class="flex flex-col gap-4 max-w-[800px] w-full items-center border border-l-gray-300 border-r-gray-300 border-t-0 border-b-0">
-    <h1 class="text-4xl uppercase font-[400]">Seus últimos posts</h1>
+    <h1 class="text-5xl uppercase font-[600] text-center">Seus últimos posts</h1>
     <div class="w-full p-4 rounded-[10px]">
       @for (post of posts; track post.id) {
         <div class="flex flex-col gap-1 posts">
