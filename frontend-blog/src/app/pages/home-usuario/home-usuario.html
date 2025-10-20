@@ -1,23 +1,23 @@
 <app-header ></app-header>
-<div class="w-full mt-4 mb-3">
-  <div class="max-w-[30%] w-full mx-auto flex flex-row gap-2 items-center">
-      <div class="bg-white border-2 border-gray-300 rounded-[10px] pt-1 pr-2 pl-2 pb-1 flex flex-row items-center gap-2 w-[70%] mx-auto" (click)="openDialog()">
+<div class="w-full mt-5">
+  <div class="w-full flex flex-row gap-2 items-center mx-auto">
+      <div class="bg-white border-2 border-gray-300 rounded-[10px] pt-1 pr-2 pl-2 pb-1 flex flex-row items-center w-full gap-4 max-w-[15%] mx-auto min-w-[170px]" (click)="openDialog()">
         <label for="procurarUsuario"><i class="ph ph-magnifying-glass"></i></label>
         <p class="text-[15px] text-gray-500" for="procurarUsuario">Procurar usuários</p>
       </div>
   </div>
 </div>
-<div class="w-full h-full p-8 flex justify-around gap-1 max-sm:flex-col">
-  <div class="flex flex-col gap-4 max-w-[300px] w-full">
-    <h3 class="text-2xl uppercase font-[350] mx-auto">Bem-vindo (usuario)</h3>
+<div class="w-full h-full p-5 flex justify-around gap-1 max-sm:flex-col">
+  <div class="flex flex-col gap-4 max-w-[300px] w-full max-sm:mb-4 max-sm:mx-auto">
+    <h3 class="text-2xl uppercase font-[350] mx-auto text-center w-full">Bem-vindo (usuario)</h3>
     <button (click)="abrirPaginaPost()" class="pt-2 pb-2 pl-3 pr-3 bg-amber-950 hover:opacity-90 text-white rounded-[10px] uppercase w-full max-w-44 text-[13.5px] mx-auto cursor-pointer">Fazer um post</button>
   </div>
-  <div class="flex flex-col gap-4 max-w-[800px] w-full items-center border border-l-gray-300 border-r-gray-300 border-t-0 border-b-0">
+  <div class="flex flex-col gap-4 max-w-[800px] w-full items-center">
     <h1 class="text-5xl uppercase font-[600] text-center">Seus últimos posts</h1>
     <div class="w-full p-4 rounded-[10px]">
       @for (post of posts; track post.id) {
         <div class="flex flex-col gap-1 posts">
-        <h4 class="ml-1.5 uppercase w-full">{{post.titulo}}</h4>
+        <h4 class="ml-1.5 uppercase w-full text-[18px]">{{post.titulo}}</h4>
         <div class="bg-white p-2 rounded-[8px] text-justify">
           {{post.conteudo}}
         </div>
