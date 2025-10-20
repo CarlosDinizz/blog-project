@@ -1,0 +1,28 @@
+CREATE TABLE users(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(150) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE post(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content VARCHAR(1000) NOT NULL,
+    creation_date TIMESTAMP NOT NULL,
+
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+
+CREATE TABLE comment(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    content VARCHAR(600) NOT NULL,
+    creation_date TIMESTAMP NOT NULL,
+
+    user_id INTEGER NOT NULL,
+    post_id INTEGER NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(post_id) REFERENCES post(id)
+);
