@@ -2,6 +2,8 @@ package com.backend.blog.service.user;
 
 import com.backend.blog.dto.user.UserRequestDTO;
 import com.backend.blog.dto.user.UserResponseDTO;
+import com.backend.blog.exception.user.InvalidPasswordException;
+import com.backend.blog.exception.user.UserNotFoundException;
 import com.backend.blog.mapper.UserMapper;
 import com.backend.blog.model.User;
 import com.backend.blog.repository.UserRespository;
@@ -25,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
         if (!request.password().equals(request.confirm_password())){
             log.error("Password does not matches.");
-            throw new RuntimeException("The password doesn't matches.");
+            throw new InvalidPasswordException("The password doesn't matches.");
         }
 
         UserMapper mapper = new UserMapper();
@@ -40,7 +42,7 @@ public class UserServiceImpl implements UserService {
     public UserResponseDTO getUser(Integer id) {
         User user = respository.findById(id).orElseThrow(() -> {
             log.error("User not found.");
-            return new RuntimeException("User not found.");
+            return new UserNotFoundException();
         });
 
         UserMapper mapper = new UserMapper();

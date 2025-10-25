@@ -3,6 +3,7 @@ spring:
   application:
     name: blog
 
+
   datasource:
     url: jdbc:h2:mem:blog
     driverClassName: org.h2.Driver
